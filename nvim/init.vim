@@ -26,11 +26,45 @@ colorscheme pencil
 " lightline - status line plugin
 " ---------------------------------------------------------
 
-" remove redundant default vim mode information
+" hide redundant default vim mode information
 set noshowmode
 
-" set matching color scheme
-let g:lightline = { 'colorscheme': 'solarized', }
+" set color scheme
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [['mode'], ['fugitive', 'filename']],
+      \   'right': [['lineinfo'], ['percent']],
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive',
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ }
+
+function! LightlineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+  let locksymbol = "\ue0a2" " Powerline font
+  return &ft !~? 'help' && &readonly ? locksymbol : ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+  if exists('*fugitive#head')
+    let branchsymbol = "\ue0a0 "  " Powerline font
+    let branch = fugitive#head()
+    return branch !=# '' ? branchsymbol.branch : ''
+  endif
+  return ''
+endfunction
 
 " ---------------------------------------------------------
 "  CtrlP - file search plugin
