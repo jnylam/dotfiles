@@ -23,6 +23,7 @@ export HOMEBREW_CASK_OPTS=--require-sha
 # set default editor
 export VISUAL=nvim
 export EDITOR=$VISUAL
+export PAGER="nvim -R"
 
 # stop OS X from putting ._* files in tar files
 export COPYFILE_DISABLE=1
