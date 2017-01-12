@@ -1,10 +1,10 @@
 " Configuration file for Nvim
 
-" Load plugins
+" load plugins
 source ~/.config/nvim/plugins.vim
 
 " ---------------------------------------------------------
-" Leader key
+" leader key
 " ---------------------------------------------------------
 
 " set leader key
@@ -13,9 +13,8 @@ let mapleader = ' '
 " leader key shortcuts
 
 
-
 " ---------------------------------------------------------
-"  color
+" pencil - color scheme plugin
 " ---------------------------------------------------------
 
 " set the color scheme
@@ -23,15 +22,8 @@ set termguicolors
 set background=light
 colorscheme pencil
 
-" enable spell checking
-set spell spelllang=en_us
-highlight clear SpellBad
-highlight SpellBad gui=underline,bold
-" disable spell checking in help
-autocmd FileType help setlocal nospell
-
 " ---------------------------------------------------------
-" lightline status line
+" lightline - status line plugin
 " ---------------------------------------------------------
 
 " remove redundant default vim mode information
@@ -41,23 +33,38 @@ set noshowmode
 let g:lightline = { 'colorscheme': 'solarized', }
 
 " ---------------------------------------------------------
-" visual cues
+"  CtrlP - file search plugin
 " ---------------------------------------------------------
 
-" enable line numbering
-set relativenumber
-set number
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
-" highlight the 80th column of text
-set colorcolumn=80
+" ---------------------------------------------------------
+" default text display settings
+" these should be disabled in non-text display mode
+" ---------------------------------------------------------
+
+" enable spell checking
+set spell spelllang=en_us
+
+" less jarring highlighting of mispellings
+highlight clear SpellBad
+highlight SpellBad gui=underline,bold
 
 " show whitespace
 set listchars=tab:≫□,trail:□,extends:⟩,precedes:⟨,nbsp:¤
 set list
 
+" show the 80th column of text
+set colorcolumn=80
+
 " ---------------------------------------------------------
-" indentation
+" text display modes
 " ---------------------------------------------------------
+
+" enable line numbering
+set relativenumber
+set number
 
 " use spaces instead of tabs
 set expandtab
@@ -79,13 +86,6 @@ set smartcase
 set nohlsearch
 
 " ---------------------------------------------------------
-" Netrw directory browser
-" ---------------------------------------------------------
-
-" remove banner
-let g:netrw_banner=0
-
-" ---------------------------------------------------------
 " window splitting
 " ---------------------------------------------------------
 
@@ -94,6 +94,22 @@ set splitright
 
 " put new buffer below current buffer
 set splitbelow
+
+" ---------------------------------------------------------
+" netrw directory browser
+" ---------------------------------------------------------
+
+" remove banner
+let g:netrw_banner=0
+
+" disable spell checking
+autocmd FileType netrw setlocal nospell
+
+" hide whitespace
+autocmd FileType netrw setlocal nolist
+
+" hide colorcolumn
+autocmd FileType netrw setlocal colorcolumn=
 
 " ---------------------------------------------------------
 " terminal mode
@@ -108,12 +124,24 @@ tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
 
-" turn off spell checking
+" disable spell checking
 autocmd TermOpen * setlocal nospell
 
+" hide whitespace
+autocmd TermOpen * setlocal nolist
+
+" hide colorcolumn
+autocmd TermOpen * setlocal colorcolumn=
+
 " ---------------------------------------------------------
-"  CtrlP
+" help mode
 " ---------------------------------------------------------
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" disable spell checking in help
+autocmd FileType help setlocal nospell
+
+" hide whitespace
+autocmd FileType help setlocal nolist
+
+" hide colorcolumn
+autocmd FileType help setlocal colorcolumn=
