@@ -29,7 +29,7 @@ colorscheme pencil
 " hide redundant default vim mode information
 set noshowmode
 
-" set color scheme
+" lightline config
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
@@ -74,8 +74,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " ---------------------------------------------------------
-" default text display settings
-" these should be disabled in non-text display mode
+" editor settings to be disabled in non-editor mode
 " ---------------------------------------------------------
 
 " enable spell checking
@@ -93,7 +92,7 @@ set list
 set colorcolumn=80
 
 " ---------------------------------------------------------
-" text display modes
+" more editor settings
 " ---------------------------------------------------------
 
 " enable line numbering
@@ -107,6 +106,12 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+" scroll ahead
+set scrolloff=3
+
+" automatically reload changed files
+set autoread
 
 " ---------------------------------------------------------
 " search
