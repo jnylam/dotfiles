@@ -13,5 +13,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
   " Fuzzy file search
   Plug 'ctrlpvim/ctrlp.vim'
+  " Automatically close parentheses
+  Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
