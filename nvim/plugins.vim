@@ -15,5 +15,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   " Automatically close parentheses
   Plug 'jiangmiao/auto-pairs'
+  " Code completion
+  Plug 'valloric/youcompleteme'
 call plug#end()
 
