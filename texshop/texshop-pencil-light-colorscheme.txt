@@ -1,0 +1,44 @@
+# Pencil light color scheme for TeXShop
+#
+# The following commands apply the Pencil Light colorscheme
+# to TeXShop, a LaTeX editor for OS X.
+
+# see https://github.com/reedes/vim-colors-pencil
+# and https://github.com/altercation/solarized/issues/167
+
+# Run the following commands in a OS X terminal.
+
+# background = pencil-light white = 244 244 244
+defaults write TeXShop background_R 0.95;
+defaults write TeXShop background_G 0.95;
+defaults write TeXShop background_B 0.95;
+
+# commands = pencil-light blue = 0 160 207
+defaults write TeXShop commandred 0.00;
+defaults write TeXShop commandgreen 0.63;
+defaults write TeXShop commandblue 0.81;
+
+# comments = pencil-light red = 208 40 132
+defaults write TeXShop commentred 0.81;
+defaults write TeXShop commentgreen 0.16;
+defaults write TeXShop commentblue 0.52;
+
+# foreground = pencil-light foreground = 84 84 84
+defaults write TeXShop foreground_R 0.33;
+defaults write TeXShop foreground_G 0.33;
+defaults write TeXShop foreground_B 0.33;
+
+# index = pencil-light blue = 0 160 207
+defaults write TeXShop indexred 0.00;
+defaults write TeXShop indexgreen 0.63;
+defaults write TeXShop indexblue 0.81;
+
+# marker = pencil-light green = 0 179 139
+defaults write TeXShop markerred 0.00;
+defaults write TeXShop markergreen 0.70;
+defaults write TeXShop markerblue 0.54;
+
+# insertionpoint = pencil-light foreground = 84 84 84
+defaults write TeXShop insertionpoint_R 0.33;
+defaults write TeXShop insertionpoint_G 0.33;
+defaults write TeXShop insertionpoint_B 0.33;
