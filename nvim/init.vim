@@ -95,6 +95,9 @@ set colorcolumn=80
 " more editor settings
 " ---------------------------------------------------------
 
+" use mouse!
+set mouse=a
+
 " enable line numbering
 set relativenumber
 set number
@@ -112,6 +115,9 @@ set scrolloff=3
 
 " automatically reload changed files
 set autoread
+
+" no auto indent for tex files
+autocmd FileType tex setlocal wrap linebreak noautoindent nocindent nosmartindent indentexpr&
 
 " ---------------------------------------------------------
 " search
